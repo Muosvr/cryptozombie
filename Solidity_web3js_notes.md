@@ -1,6 +1,6 @@
 # pragma and import
 ```solidity
-pragma solidity ^0.4.19; <br />
+pragma solidity ^0.4.19;
 import “./another_file.sol”;
 ```
 
