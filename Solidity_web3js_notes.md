@@ -174,6 +174,7 @@ contract MyContract {
 
 # commenting your code
 The Solidity community uses a format called natspec. Example below:
+```solidity
 /// @title A contract for basic math operations
 /// @author H4XF13LD MORRIS 💯💯😎💯💯
 /// @notice For now, this contract just adds a multiply function
@@ -188,6 +189,7 @@ contract Math {
     z = x * y;
   }
 }
+```
 
 # Deploying a contract
 note: cryptocurrency tokens are also contracts themselves
@@ -198,26 +200,26 @@ web3.js
 handles communication and interaction between your front end to and the Ethereum blockchain. 
 
 Installation optioins
-using NPM
 ```bash
+#using NPM
 npm install web3
-```
-//using Yarn
+
+#using Yarn
 yarn add web3
 
-//Using Bower
+#Using Bower
 bower install web3
-
+```
 or download the minified js file the link below and include in your html
  https://github.com/ethereum/web3.js/blob/1.0/dist/web3.min.js
 
-web3 providers
+# web3 providers
 Because Ethereum is made up of nodes, setting a web3 provider tells our web3.js which node to talk to communicate with the blockchain
 
-Infura
+### Infura
 Allows free API calls to access information in the blockchain, but cannot do write operations
 
-Metamask
+### Metamask
 A secure way to let users manage their accounts as well as read and write into the Ethereum blockchain through a browser extension. Metamask will inject their web3 provider
 
 Set up to detect Metamask present or prompt user to install:
@@ -231,16 +233,18 @@ window.addEventListener(‘load’, function() {
 startApp();
 } )
 
-Talking to Contracts
+# Talking to Contracts
 ABI stands for Application Binary Interface, which is a JSON file that tells your web3.js how to interact with your contract. When you compile a contract, it will generate an ABI. You can also look up the ABI and address of any deployed contracts on Etherscan: https://etherscan.io/ 
 
 //instantiate a contract
 var myContract = new web3js.eth.Contract(myABI, myContractAddress);
 
-Call
+### Call
+```solidity
 //Using call to access data on the contract
 myContract.methods.aDifferentMethod().call()
-
+```
+```solidity
 //For version 1.0 of web3.js methods calls are handled using promises, older versions of web3.js might use callbacks
 //suppose there is a function in myContract called accountDetials that shows account information
 function getAccountDetails(id) {
@@ -251,7 +255,9 @@ getAccountDetails(20)
 .then(function(result) {
 	console.log(“Account info:”, JSON.stringify(result));
 });
-Send	
+```
+### Send
+```solidity
 //using send to create a transaction and write to the blockchain. Send requires an address, which is accessible through message.sender in the contract.
 myContract.methods.myMethod(123).send({from: address})
 
@@ -280,20 +286,23 @@ function createRandomZombie(name) {
     $("#txStatus").text(error);
   });
 }
+```
+### Calling payable function
 
-Calling payable function
-
-Wei
-the smallest subunit of Ether, there are 10^18 wei in one ether. This is the amount to specify when using the send method
+#### Wei
+The smallest subunit of Ether, there are 10^18 wei in one ether. This is the amount to specify when using the send method
 converting ether to wei with:
+```solidity
 web3js.utils.toWei("1"); //convert 1ETH to Wei
-
+```
+```solidity
 cryptoZombies.methods.levelUp(zombieId)
 .send({ from: userAccount, value: web3js.utils.toWei("0.001", "ether") })
-
-listening(subscribing) for events
+```
+# listening(subscribing) for events
 This code is triggered everytime the specified event is triggered in the contract
 
+```solidity
 //code sample
 Mycontract.events.myEvent()
 .on("data", function(event) {
@@ -301,3 +310,4 @@ Mycontract.events.myEvent()
   // We can access this event's 3 return values on the `event.returnValues` object:
   console.log("Event values: ", data.value_name1, date.value_name2, data.value_name3);
 }).on("error", console.error);
+```
