@@ -194,6 +194,7 @@ contract Math {
 # Deploying a contract
 note: cryptocurrency tokens are also contracts themselves
 https://medium.com/bitfwd/how-to-issue-your-own-token-on-ethereum-in-less-than-20-minutes-ac1f8f022793
+
 https://www.ethereum.org/token
 
 web3.js
@@ -210,7 +211,7 @@ yarn add web3
 #Using Bower
 bower install web3
 ```
-or download the minified js file the link below and include in your html
+Or download the minified js file the link below and include in your html
  https://github.com/ethereum/web3.js/blob/1.0/dist/web3.min.js
 
 # web3 providers
@@ -235,9 +236,10 @@ startApp();
 
 # Talking to Contracts
 ABI stands for Application Binary Interface, which is a JSON file that tells your web3.js how to interact with your contract. When you compile a contract, it will generate an ABI. You can also look up the ABI and address of any deployed contracts on Etherscan: https://etherscan.io/ 
-
-//instantiate a contract
+### to instantiate a contract
+```solidity
 var myContract = new web3js.eth.Contract(myABI, myContractAddress);
+```
 
 ### Call
 ```solidity
@@ -289,15 +291,15 @@ function createRandomZombie(name) {
 ```
 ### Calling payable function
 
-#### Wei
-The smallest subunit of Ether, there are 10^18 wei in one ether. This is the amount to specify when using the send method
+Wei is the smallest subunit of Ether, there are 10^18 wei in one ether. This is the amount to specify when using the send method
 converting ether to wei with:
 ```solidity
 web3js.utils.toWei("1"); //convert 1ETH to Wei
 ```
 ```solidity
-cryptoZombies.methods.levelUp(zombieId)
-.send({ from: userAccount, value: web3js.utils.toWei("0.001", "ether") })
+//pay 0.01 ether to purchase a product
+myContract.methods.makePurchase(productId)
+.send({ from: userAccount, value: web3js.utils.toWei("0.01", "ether") })
 ```
 # listening(subscribing) for events
 This code is triggered everytime the specified event is triggered in the contract
