@@ -319,7 +319,7 @@ function getAccountDetails(id) {
 
 getAccountDetails(20)
 .then(function(result) {
-  console.log(“Account info:”, JSON.stringify(result));
+  console.log("Account info:", JSON.stringify(result));
 });
 ```
 ### Send
