@@ -4,7 +4,7 @@ Use this file as a cheat sheet to program a contract on solidity, deploy it, and
 ## Content
 * [Solidity basics](#Solidity-basics)
 * [Deploying your contract](#Deploying-a-contract)
-* [Web3js](#web3js)
+* [Interacting with your web app front end using web3js](#Interacting-with-your-web-app-front-end-using-web3js)
 
 # Solidity basics
 ## pragma and import
@@ -228,7 +228,7 @@ https://medium.com/bitfwd/how-to-issue-your-own-token-on-ethereum-in-less-than-2
 
 https://www.ethereum.org/token
 
-# Web3js
+# Interacting with your web app front end using web3js
 Inorder to for your web app front end to talk to and interact with the block chain, we need to use a web3.js file from Ethereum.
 
 Installation optioins
