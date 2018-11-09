@@ -127,7 +127,7 @@ function _transferToken(uint amount, address from, address to) private {
 **Internal** is the same as **private**, except that it is also accessible to contracts that inherit from it. **External** is similar to **public** except that these function can only be called outside of the contract.
 
 
-## view, pure
+## view, pure modifiers
 If a function is declared as view or pure, they don’t cost any gas. But view function can only access data from the blockchain and not write, while pure functions only perform computation and do not access data or write data to the blockchain.
 ```solidity
 string greeting = "Hello world"
@@ -142,7 +142,7 @@ function multiply(uint a, uint b) pure returns (uint) {
 ```
 
 ## require
-A check can be placed on a function to check if criteria have been met before it runs, such as a payment has been made. 
+A check can be placed on a function to make sure if criteria have been met before it runs, such as a payment has been made. 
 ```solidity
 function approveTransfer(address accountHolder, uint tokenIndex) external {
 require(accountHolder == msg.sender);
@@ -153,9 +153,8 @@ require(accountHolder == msg.sender);
 Gives the address of the party who calls the contract method.
 
 ## modifier
-Similar to a function by is used to modify another function only. A modifier needs to be run before the function being modified is run. This can be used to reduce the amount of repetitive code. For example, instead of using require to verify sender identity in every function, you can use require in the modifier and use that modifier for every function that needs such verification.
+A modifier is similar to a function but is used to modify another function only. A modifier always run before the modified function. This can be used to reduce the amount of repetitive code. For example, instead of using require to verify sender identity in every function, you can use require in the modifier and use that modifier for every function that needs such verification.
 
-The aforementioned pure, view are also modifiers
 ```solidity
 //the underscore signals the end of the modifier so the program knows to return to the original function
 modifier onlyOwner() {
@@ -170,7 +169,7 @@ function transferOwnership(address newOwner) public onlyOwner {
 }
 ```
 ## payable modifier
-Allows a function to handle the payment that comes with the function call message using message.value
+Allows a function to handle the payment that comes with the function call message using msg.value
 ```solidity
 function purchaseProduct(uint productId, address buyer) external payable {
   require(msg.value == productFee);
@@ -179,10 +178,13 @@ function purchaseProduct(uint productId, address buyer) external payable {
 }
 ```
 ## storage vs memory
-Most of the time you don’t need to worry about this. Except when handling structs or arrays within functions. Storage is expensive because every time you write data, it is permanently added to the blockchain forever. Memory only exists until the end of the function call so it is much cheaper.
+Most of the time you don’t need to worry about this. Except when handling structs or arrays within functions, which will cause a compiler error if type is not declared. Storage variables are written to the blockchain permanently and is expensive while memory only exists until the end of the function call so it wil require much less gas.
 ```solidity
-//declaring  a memory array inside a function
+//declaring a memory array inside a function
 uint[] memory values = new uint[](3)
+
+//declaring a storage array inside function
+uint[] storage values = new uint[](3)
 ```
 For now, a memory array in Solidity needs to be declared with the length argument and cannot change size.
 
@@ -198,9 +200,16 @@ function add(uint _x, uint _y) public {
 }
 ```
 ## interface
-Interacting with other contracts. You can create an interface inside your contract inorder to interact with another contract on the blockchain
+Interface interacts with other contracts. You can create an interface inside your contract in order to interact with another contract on the blockchain. 
 ```solidity
-//code example
+//Take this code example from cryptozombies
+
+//creating an interface is just like creating a contract
+contract NumberInterface {
+  function getNum(address _myAddress) public view returns (uint);
+}
+
+//Once an interface is created, it can be instantiated with an address to the target contract 
 contract MyContract {
   address NumberInterfaceAddress = 0xab38... 
   // ^ The address of the FavoriteNumber contract on Ethereum
@@ -235,14 +244,14 @@ contract Math {
 ```
 
 # Deploying a contract
-There are some good resources on quickly deploying your own token avaibale online, see linkes below. Note: cryptocurrency tokens are also contracts themselves
+There are some good resources on quickly deploying your own token online, see linkes below. Note: cryptocurrency tokens are also contracts themselves
 
 https://medium.com/bitfwd/how-to-issue-your-own-token-on-ethereum-in-less-than-20-minutes-ac1f8f022793
 
 https://www.ethereum.org/token
 
 # Interacting with your web app front end using web3js
-Inorder to for your web app front end to talk to and interact with the block chain, we need to use a web3.js file from Ethereum.
+In order for your web app front end to talk to and interact with the Ethereum blockchain, we need to use a web3js from Ethereum.
 
 Installation optioins
 ```bash
@@ -262,12 +271,12 @@ Or download the minified js file the link below and include in your html
 Because Ethereum is made up of nodes, setting a web3 provider tells our web3.js which node to talk to communicate with the blockchain
 
 ### Infura
-Allows free API calls to access information in the blockchain, but cannot do write operations
+Allows free API calls to access information in the blockchain, but cannot do write operations. More info [here](https://infura.io/)
 
 ### Metamask
-A secure way to let users manage their accounts as well as read and write into the Ethereum blockchain through a browser extension. Metamask will inject their web3 provider
+A secure and recommended way to bridge your webapp with the Ethereum blockchain. It can let users manage Ethreum accounts as well as read and write into the Ethereum blockchain through a browser extension. Metamask will inject their web3 provider automaticall (unless browser private mode is on, so make sure it's off during testing)
 
-Set up to detect Metamask present or prompt user to install:
+Set up to detect and load Metamask if present or prompt user to install:
 window.addEventListener(‘load’, function() {
   if (typeof web3 !== ‘undefined’) {
     web3js = new Web3(web3.currentProvider);
@@ -335,8 +344,9 @@ function createRandomZombie(name) {
 ```
 ### Calling payable function
 
-Wei is the smallest subunit of Ether, there are 10^18 wei in one ether. This is the amount to specify when using the send method
-converting ether to wei with:
+Wei is the smallest subunit of Ether, there are 10^18 wei in one Ether. This is the amount to specify when using the send method. 
+
+You can convert ether to wei with web3's utility function for convenience:
 ```solidity
 web3js.utils.toWei("1"); //convert 1ETH to Wei
 ```
@@ -346,7 +356,7 @@ myContract.methods.makePurchase(productId)
 .send({ from: userAccount, value: web3js.utils.toWei("0.01", "ether") })
 ```
 ## listening(subscribing) for events
-This code is triggered everytime the specified event is triggered in the contract
+This front end code is triggered everytime the specified event is emitted in the contract
 
 ```solidity
 //code sample
