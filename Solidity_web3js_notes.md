@@ -1,5 +1,5 @@
 ## Contents
-* [Solidity basics](#Solidity basics)
+* [Solidity basics](#Solidity-basics)
 
 # Solidity basics
 ## pragma and import
