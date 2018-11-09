@@ -7,6 +7,8 @@ Use this file as a cheat sheet to program a contract on solidity, deploy it, and
 * [Interacting with your web app front end using web3js](#Interacting-with-your-web-app-front-end-using-web3js)
 
 # Solidity basics
+Solidity is a contrac-oriented, high-level language for implementing smart contracts. Influenced by C++, Python, and Javascript, it is designed to work with Etherum blockchain on the Ethereum Virtual Machine.
+
 ## pragma and import
 At the top of the page pragma singal to the compiler which version of solidity it should use. You can import file to be able use contracts from andother file
 ```solidity
@@ -97,7 +99,7 @@ contract MyToken {
 
 
 ## Inheritance
-Solidity contracts can inherit from other contracts(assuming the other contract is imported above). Contract inheritance allows a contract to access methods and variables in another contract similar to a class inheritance in another programming language.
+Solidity contracts can inherit from other contracts(assuming the other contract is imported above). Contract inheritance allows a contract to access methods and variables in another contract similar to a class inheritance in other programming languages.
 
 ```solidity
 contract parentContract{
