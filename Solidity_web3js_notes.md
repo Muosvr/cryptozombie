@@ -128,14 +128,25 @@ function _transferToken(uint amount, address from, address to) private {
 
 
 ## view, pure
-If a function is declared as view or pure, they don’t cost any gas. But View function can only access data from the blockchain and not write, while pure functions only perform computation and does not access data or write data to the blockchain.
+If a function is declared as view or pure, they don’t cost any gas. But view function can only access data from the blockchain and not write, while pure functions only perform computation and does not access data or write data to the blockchain.
+```solidity
+string greeting = "Hello world"
+//View function only access data and does not make any change
+function sayHello() public view returns (string) {
+    return greeting;
+}
+//Pure function does not access or write data
+function multiply(uint a, uint b) pure returns (uint) {
+  return a * b;
+}
+```
 
 ## require
 A check can be placed on a function to check if criteria have been met before it runs, such as a payment has been made. 
 ```solidity
 function approveTransfer(address accountHolder, uint tokenIndex) external {
 require(accountHolder == msg.sender);
-	//initiate transfer
+    //initiate transfer
 }
 ```
 ## msg.sender
@@ -175,7 +186,7 @@ uint[] memory values = new uint[](3)
 ```
 For now, a memory array in Solidity needs to be declared with the length argument and cannot change size.
 
-## Events
+## events
 Events communicate what happens in a contract to the front end of your app that is listening. Use emit to send the event. You can also query past events using getPastEvents, which can be used as a cheaper form of storage. However, events are not readable from inside the smart contract.
 ```solidity
 event IntegersAdded(uint x, uint y, uint result);
