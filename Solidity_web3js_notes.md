@@ -34,7 +34,7 @@ Person satoshi = Person(172, “Satochi”);
 mapping (string => uint) tokenID;
 tokenID[“CrytoKitty”] = 12;
 
-address CrytoKitty = 0x06012c8cf97BEaD5deAe237070F9587f8E7A266d;
+address CryptoKitty = 0x06012c8cf97BEaD5deAe237070F9587f8E7A266d;
 ```
 ## function
 ```solidity
