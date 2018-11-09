@@ -298,7 +298,7 @@ var myContract = new web3js.eth.Contract(myABI, myContractAddress);
 ### Call
 ```solidity
 //Using call to access data on the contract
-myContract.methods.aDifferentMethod().call()
+myContract.methods.myMethod().call()
 ```
 ```solidity
 //For version 1.0 of web3.js methods calls are handled using promises, older versions of web3.js might use callbacks
