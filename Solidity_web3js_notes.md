@@ -128,7 +128,7 @@ function _transferToken(uint amount, address from, address to) private {
 
 
 ## view, pure
-If a function is declared as view or pure, they don’t cost any gas. But view function can only access data from the blockchain and not write, while pure functions only perform computation and does not access data or write data to the blockchain.
+If a function is declared as view or pure, they don’t cost any gas. But view function can only access data from the blockchain and not write, while pure functions only perform computation and do not access data or write data to the blockchain.
 ```solidity
 string greeting = "Hello world"
 //View function only access data and does not make any change
