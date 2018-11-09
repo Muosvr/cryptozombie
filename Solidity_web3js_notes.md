@@ -4,7 +4,7 @@ Use this file as a cheat sheet to program a contract on solidity, deploy it, and
 ## Content
 * [Solidity basics](#Solidity-basics)
 * [Deploying your contract](#Deploying-a-contract)
-* [Interacting with your web app front end using web3js](#Interacting-with-your-web-app-front-end-using-web3js)
+* [Interacting with contract from web app using web3js](#Interacting-with-your-web-app-front-end-using-web3js)
 
 # Solidity basics
 Solidity is a contract-oriented, high-level language for implementing smart contracts. Influenced by C++, Python, and Javascript, it is designed to work with Etherum blockchain on the Ethereum Virtual Machine.
@@ -260,7 +260,7 @@ There are some good resources on quickly deploying your own token already online
 
 [Create your own crypto-currency by ETHEREUM](https://www.ethereum.org/token)
 
-# Interacting with your web app front end using web3js
+# Interacting with contract from web app using web3js
 In order for your web app front end to talk to and interact with the Ethereum blockchain, we need to use a web3js from Ethereum.
 
 Installation optioins
