@@ -45,7 +45,27 @@ function multiply (uint a, uint b) return (uint) {
 	return a * b;
 }
 ```
-Functions can have multiple returns
+Functions can have multiple returns, like this sample code snipet from Cryptonzombies demonstrats
+```solidity
+function multipleReturns() internal returns(uint a, uint b, uint c) {
+  return (1, 2, 3);
+}
+
+function processMultipleReturns() external {
+  uint a;
+  uint b;
+  uint c;
+  // This is how you do multiple assignment:
+  (a, b, c) = multipleReturns();
+}
+
+// Or if we only cared about one of the values:
+function getLastReturnValue() external {
+  uint c;
+  // We can just leave the other fields blank:
+  (,,c) = multipleReturns();
+}
+```
 
 ## contract
 A contract is the building block of Ethereum applications similar to a class where the functions and variables inside belong to. In Solidity a contract once deployed will be given an address associated with it so other contract or dApp can call it.
