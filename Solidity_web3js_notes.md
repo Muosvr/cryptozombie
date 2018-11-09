@@ -59,7 +59,7 @@ function multiply (uint _a, uint _b) returns (uint) {
 ```
 Functions can have multiple return values, like this sample code snipet from Cryptonzombies demonstrates
 ```solidity
-function multipleReturns() internal returns(uint a, uint b, uint c) {
+function multipleReturns() internal returns(uint, uint, uint) {
   return (1, 2, 3);
 }
 
