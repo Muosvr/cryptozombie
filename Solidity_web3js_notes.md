@@ -1,3 +1,6 @@
+## Contents
+* [Solidity basics](#Solidity basics)
+
 # Solidity basics
 ## pragma and import
 At the top of the page pragma singal to the compiler which version of solidity it should use. You can import file to be able use contracts from andother file
@@ -194,13 +197,14 @@ contract Math {
 ```
 
 # Deploying a contract
-There are some good resources on deploying your own token avaibale online, see linkes below. Note: cryptocurrency tokens are also contracts themselves
+There are some good resources on quickly deploying your own token avaibale online, see linkes below. Note: cryptocurrency tokens are also contracts themselves
+
 https://medium.com/bitfwd/how-to-issue-your-own-token-on-ethereum-in-less-than-20-minutes-ac1f8f022793
 
 https://www.ethereum.org/token
 
 # web3.js
-handles communication and interaction between your front end to and the Ethereum blockchain. 
+Inorder to for your web app front end to talk to and interact with the block chain, we need to use a web3.js file from Ethereum.
 
 Installation optioins
 ```bash
