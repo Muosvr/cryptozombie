@@ -26,8 +26,8 @@ string[5] stringArray;
 uint[] dynamicArray
 
 struct Person {
-uint age;
-string name;
+  uint age;
+  string name;
 }
 Person satoshi = Person(172, “Satochi”);
 
@@ -40,11 +40,11 @@ address CryptoKitty = 0x06012c8cf97BEaD5deAe237070F9587f8E7A266d;
 ```solidity
 Person [] voters;
 function simple_function(string _name, uint _age) {
-	voters.push(Person(_name, _age));
+  voters.push(Person(_name, _age));
 }
 
 function multiply (uint _a, uint _b) return (uint) {
-	return _a * _b;
+  return _a * _b;
 }
 ```
 Functions can have multiple return values, like this sample code snipet from Cryptonzombies demonstrates
@@ -121,7 +121,7 @@ Both variables and functions can be declared as **public** or **private** to ind
 ```solidity
 // It is common practice to put an underscore in front of private function to indicate its hidden status from outside the contract
 function _transferToken(uint amount, address from, address to) private {
-//make the transfer
+  //make the transfer
 }
 ```
 **Internal** is the same as **private**, except that it is also accessible to contracts that inherit from it. **External** is similar to **public** except that these function can only be called outside of the contract.
@@ -133,7 +133,7 @@ If a function is declared as view or pure, they don’t cost any gas. But view f
 string greeting = "Hello world"
 //View function only access data and does not make any change
 function sayHello() public view returns (string) {
-    return greeting;
+  return greeting;
 }
 //Pure function does not access or write data
 function multiply(uint a, uint b) pure returns (uint) {
@@ -146,7 +146,7 @@ A check can be placed on a function to check if criteria have been met before it
 ```solidity
 function approveTransfer(address accountHolder, uint tokenIndex) external {
 require(accountHolder == msg.sender);
-    //initiate transfer
+  //initiate transfer
 }
 ```
 ## msg.sender
@@ -159,23 +159,23 @@ The aforementioned pure, view are also modifiers
 ```solidity
 //the underscore signals the end of the modifier so the program knows to return to the original function
 modifier onlyOwner() {
-	require(msg.sender == owner);
-	_;
+  require(msg.sender == owner);
+  _;
 }
 
 function transferOwnership(address newOwner) public onlyOwner {
-	require(newOwner != address(0));
-	OwnershipTransferred(owner, newOwner);
-	owner = newOwner;
+  require(newOwner != address(0));
+  OwnershipTransferred(owner, newOwner);
+  owner = newOwner;
 }
 ```
 ## payable modifier
 Allows a function to handle the payment that comes with the function call message using message.value
 ```solidity
 function purchaseProduct(uint productId, address buyer) external payable {
-	require(msg.value == productFee);
-	var newOwner = buyer;
-	transferOwnership(uint productId, address newOwner);
+  require(msg.value == productFee);
+  var newOwner = buyer;
+  transferOwnership(uint productId, address newOwner);
 }
 ```
 ## storage vs memory
@@ -192,9 +192,9 @@ Events communicate what happens in a contract to the front end of your app that 
 event IntegersAdded(uint x, uint y, uint result);
 
 function add(uint _x, uint _y) public {
-	uint result = _x + _y;
-	emit IntegersAdded(_x, _y, result);
-	return result;
+  uint result = _x + _y;
+  emit IntegersAdded(_x, _y, result);
+  return result;
 }
 ```
 ## interface
@@ -269,14 +269,14 @@ A secure way to let users manage their accounts as well as read and write into t
 
 Set up to detect Metamask present or prompt user to install:
 window.addEventListener(‘load’, function() {
-	if (typeof web3 !== ‘undefined’) {
-		web3js = new Web3(web3.currentProvider);
-	} else {
-		// send users a message to install Metamask in order to use this app
-}
-//Now you can start your app & access web3js freely:
-startApp();
-} )
+  if (typeof web3 !== ‘undefined’) {
+    web3js = new Web3(web3.currentProvider);
+  } else {
+    // send users a message to install Metamask in order to use this app
+  }
+  //Now you can start your app & access web3js freely:
+  startApp();
+})
 
 ## Talking to Contracts
 ABI stands for Application Binary Interface, which is a JSON file that tells your web3.js how to interact with your contract. When you compile a contract, it will generate an ABI. You can also look up the ABI and address of any deployed contracts on Etherscan: https://etherscan.io/ 
@@ -294,12 +294,12 @@ myContract.methods.aDifferentMethod().call()
 //For version 1.0 of web3.js methods calls are handled using promises, older versions of web3.js might use callbacks
 //suppose there is a function in myContract called accountDetials that shows account information
 function getAccountDetails(id) {
-	return myContract.methods.accountDetails(id).call()
+  return myContract.methods.accountDetails(id).call()
 }
 
 getAccountDetails(20)
 .then(function(result) {
-	console.log(“Account info:”, JSON.stringify(result));
+  console.log(“Account info:”, JSON.stringify(result));
 });
 ```
 ### Send
