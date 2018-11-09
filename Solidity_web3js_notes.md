@@ -184,7 +184,7 @@ Most of the time you don’t need to worry about this. Except when handling stru
 uint[] memory values = new uint[](3);
 
 //declaring a storage array inside function
-uint[] storage values = new uint[];
+uint[] storage values;
 ```
 For now, a memory array in Solidity needs to be declared with the length argument and cannot change size.
 
