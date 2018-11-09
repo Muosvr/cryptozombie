@@ -244,11 +244,11 @@ contract Math {
 ```
 
 # Deploying a contract
-There are some good resources on quickly deploying your own token online, see linkes below. Note: cryptocurrency tokens are also contracts themselves
+There are some good resources on quickly deploying your own token already online. The first article walks you through the process and the second one from Ethereum is really good for more detailed reference. Note: cryptocurrency tokens are also contracts themselves
 
-https://medium.com/bitfwd/how-to-issue-your-own-token-on-ethereum-in-less-than-20-minutes-ac1f8f022793
+[How to issue your own token on Ethereum in less than 20 minutes.](https://medium.com/bitfwd/how-to-issue-your-own-token-on-ethereum-in-less-than-20-minutes-ac1f8f022793)
 
-https://www.ethereum.org/token
+[Create your own crypto-currency by ETHEREUM](https://www.ethereum.org/token)
 
 # Interacting with your web app front end using web3js
 In order for your web app front end to talk to and interact with the Ethereum blockchain, we need to use a web3js from Ethereum.
