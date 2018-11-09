@@ -1,5 +1,7 @@
-## Contents
+# Notes on Solidity contract and web3js
 * [Solidity basics](#Solidity-basics)
+* [Deploying your contract](#Deploying-a-contract)
+* [web3.js](#web3.js)
 
 # Solidity basics
 ## pragma and import
