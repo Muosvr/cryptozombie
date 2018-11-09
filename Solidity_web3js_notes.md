@@ -13,7 +13,7 @@ Solidity is a contrac-oriented, high-level language for implementing smart contr
 At the top of the page pragma singal to the compiler which version of solidity it should use. You can import file to be able use contracts from andother file
 ```solidity
 pragma solidity ^0.4.19;
-import “./another_file.sol”;
+import "./another_file.sol";
 ```
 
 ## data types (uint, address, string, struct, mapping)
