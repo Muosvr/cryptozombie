@@ -18,22 +18,32 @@ import "./another_file.sol";
 
 ## data types (uint, address, string, struct, mapping)
 ```solidity
+//unsigned integer
 uint num = 353;
+
+//string
 string name = “Jack”;
 
+//arrays fixed or dynamic
 uint[2] fixedArray;
 string[5] stringArray;
 uint[] dynamicArray
 
+//struct
 struct Person {
   uint age;
   string name;
 }
+//instantiate a struct
 Person satoshi = Person(172, “Satochi”);
+//access struct values
+satoshi.age;
 
+//mapping
 mapping (string => uint) tokenID;
 tokenID[“CrytoKitty”] = 12;
 
+//adress
 address CryptoKitty = 0x06012c8cf97BEaD5deAe237070F9587f8E7A266d;
 ```
 ## function
