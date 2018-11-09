@@ -9,14 +9,14 @@ Use this file as a cheat sheet to program a contract on solidity, deploy it, and
 # Solidity basics
 Solidity is a contract-oriented, high-level language for implementing smart contracts. Influenced by C++, Python, and Javascript, it is designed to work with Etherum blockchain on the Ethereum Virtual Machine.
 
-## pragma and import
+## Specify version and import
 At the top of the page pragma singals to the compiler which version of solidity it should use. You can import file to be able use contracts from andother file
 ```solidity
 pragma solidity ^0.4.19;
 import "./another_file.sol";
 ```
 
-## data types (uint, address, string, struct, mapping)
+## Data types (uint, address, string, struct, mapping)
 ```solidity
 //unsigned integer
 uint num = 353;
