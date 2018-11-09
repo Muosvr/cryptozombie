@@ -1,4 +1,6 @@
-# pragma and import
+# Solidity basics
+## pragma and import
+At the top of the page pragma singal to the compiler which version of solidity it should use. You can import file to be able use contracts from andother file
 ```solidity
 pragma solidity ^0.4.19;
 import “./another_file.sol”;
