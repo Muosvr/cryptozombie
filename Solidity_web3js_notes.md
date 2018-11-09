@@ -299,7 +299,7 @@ window.addEventListener(‘load’, function() {
 })
 ```
 ## Talking to Contracts
-ABI stands for Application Binary Interface, which is a JSON file that tells your web3.js how to interact with your contract. When you compile a contract, it will generate an ABI. You can also look up the ABI and address of any deployed contracts on Etherscan: https://etherscan.io/ 
+ABI stands for Application Binary Interface, which is a JSON object that tells your web3.js how to interact with your contract. When you compile a contract, it will generate an ABI. You can also look up the ABI and address of any deployed contracts on Etherscan: https://etherscan.io/ 
 ### to instantiate a contract
 ```solidity
 var myContract = new web3js.eth.Contract(myABI, myContractAddress);
