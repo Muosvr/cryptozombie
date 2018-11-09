@@ -43,11 +43,11 @@ function simple_function(string _name, uint _age) {
 	voters.push(Person(_name, _age));
 }
 
-function multiply (uint a, uint b) return (uint) {
-	return a * b;
+function multiply (uint _a, uint _b) return (uint) {
+	return _a * _b;
 }
 ```
-Functions can have multiple returns, like this sample code snipet from Cryptonzombies demonstrats
+Functions can have multiple return values, like this sample code snipet from Cryptonzombies demonstrates
 ```solidity
 function multipleReturns() internal returns(uint a, uint b, uint c) {
   return (1, 2, 3);
@@ -98,7 +98,7 @@ contract MyToken {
 ```
 
 
-## Inheritance
+## inheritance
 Solidity contracts can inherit from other contracts(assuming the other contract is imported above). Contract inheritance allows a contract to access methods and variables in another contract similar to a class inheritance in other programming languages.
 
 ```solidity
@@ -117,14 +117,14 @@ contract childContract is parentContract{
 ```
 
 ## private, public, internal, external
-Both variables and functions can be declared as public or private to indicate whether they are accessible outside of the contract. All functions are public by default which is not always desirable, it’s good practice to mark them all private unless needed to be called outside.
+Both variables and functions can be declared as **public** or **private** to indicate whether they are accessible outside of the contract. All functions are public by default, which is not always desirable, therefore it’s good practice to mark them all private unless needed to be called outside.
 ```solidity
-//it is good practice to put an underscore in front of private function to indicate its hidden status from outside the contract
+// It is common practice to put an underscore in front of private function to indicate its hidden status from outside the contract
 function _transferToken(uint amount, address from, address to) private {
 //make the transfer
 }
 ```
-Internal is the same as private, except that it is also accessible to contracts that inherit from it. External is similar public except that these function can only be called outside of the contract.
+**Internal** is the same as **private**, except that it is also accessible to contracts that inherit from it. **External** is similar to **public** except that these function can only be called outside of the contract.
 
 
 ## view, pure
@@ -180,9 +180,9 @@ Events communicate what happens in a contract to the front end of your app that 
 ```solidity
 event IntegersAdded(uint x, uint y, uint result);
 
-function add(uint x, uint y) public {
-	uint result = x + y;
-	emit IntegersAdded(x, y, result);
+function add(uint _x, uint _y) public {
+	uint result = _x + _y;
+	emit IntegersAdded(_x, _y, result);
 	return result;
 }
 ```
