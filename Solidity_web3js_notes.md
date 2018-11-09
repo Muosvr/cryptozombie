@@ -1,5 +1,5 @@
 # Notes on Solidity contract and web3js
-Use this file as a cheat sheet to program a contract on solidity, deploy it, and interact with your own web app. Solidity notes here are lesson summaries based on [Cryptozombies](https://cryptozombies.io/)
+Use this file as a cheat sheet to program a contract on solidity, deploy it, and interact with your own web app. Solidity notes here are lesson summaries based on [Cryptozombies](https://cryptozombies.io/).
 
 ## Content
 * [Solidity basics](#Solidity-basics)
@@ -10,7 +10,7 @@ Use this file as a cheat sheet to program a contract on solidity, deploy it, and
 Solidity is a contrac-oriented, high-level language for implementing smart contracts. Influenced by C++, Python, and Javascript, it is designed to work with Etherum blockchain on the Ethereum Virtual Machine.
 
 ## pragma and import
-At the top of the page pragma singal to the compiler which version of solidity it should use. You can import file to be able use contracts from andother file
+At the top of the page pragma singals to the compiler which version of solidity it should use. You can import file to be able use contracts from andother file
 ```solidity
 pragma solidity ^0.4.19;
 import "./another_file.sol";
@@ -53,7 +53,7 @@ function simple_function(string _name, uint _age) {
   voters.push(Person(_name, _age));
 }
 
-function multiply (uint _a, uint _b) return (uint) {
+function multiply (uint _a, uint _b) returns (uint) {
   return _a * _b;
 }
 ```
@@ -284,7 +284,7 @@ Because Ethereum is made up of nodes, setting a web3 provider tells our web3.js 
 Allows free API calls to access information in the blockchain, but cannot do write operations. More info [here](https://infura.io/)
 
 ### Metamask
-A secure and recommended way to bridge your webapp with the Ethereum blockchain. It can let users manage Ethreum accounts as well as read and write into the Ethereum blockchain through a browser extension. Metamask will inject their web3 provider automaticall (unless  private mode on the extension is on, so make sure it's off during testing)
+A secure and recommended way to bridge your webapp with the Ethereum blockchain. It can let users manage Ethreum accounts as well as read and write into the Ethereum blockchain through a browser extension. Metamask will inject their web3 provider automatically (unless  private mode on the extension is on, so make sure it's off during testing)
 
 Set up to detect and load Metamask if present or prompt user to install:
 ```solidity
