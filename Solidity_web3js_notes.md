@@ -274,7 +274,7 @@ Because Ethereum is made up of nodes, setting a web3 provider tells our web3.js 
 Allows free API calls to access information in the blockchain, but cannot do write operations. More info [here](https://infura.io/)
 
 ### Metamask
-A secure and recommended way to bridge your webapp with the Ethereum blockchain. It can let users manage Ethreum accounts as well as read and write into the Ethereum blockchain through a browser extension. Metamask will inject their web3 provider automaticall (unless browser private mode is on, so make sure it's off during testing)
+A secure and recommended way to bridge your webapp with the Ethereum blockchain. It can let users manage Ethreum accounts as well as read and write into the Ethereum blockchain through a browser extension. Metamask will inject their web3 provider automaticall (unless  private mode on the extension is on, so make sure it's off during testing)
 
 Set up to detect and load Metamask if present or prompt user to install:
 window.addEventListener(‘load’, function() {
