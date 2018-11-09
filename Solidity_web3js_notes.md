@@ -1,5 +1,5 @@
 # Notes on Solidity contract and web3js
-Use this file as a cheat sheet to program a contract on solidity, deploy it, and ineract with your own web app. Solidity notes are taken based on lessons from [Cryptozombies](https://cryptozombies.io/)
+Use this file as a cheat sheet to program a contract on solidity, deploy it, and interact with your own web app. Solidity notes here are lesson summaries based on [Cryptozombies](https://cryptozombies.io/)
 
 ## Content
 * [Solidity basics](#Solidity-basics)
