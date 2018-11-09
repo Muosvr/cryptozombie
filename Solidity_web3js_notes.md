@@ -1,4 +1,7 @@
 # Notes on Solidity contract and web3js
+Using this file as a cheat sheet to program a contract on solidity, deploy it, and ineract with your own web app
+
+## Content
 * [Solidity basics](#Solidity-basics)
 * [Deploying your contract](#Deploying-a-contract)
 * [web3.js](#web3.js)
