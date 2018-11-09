@@ -181,10 +181,10 @@ function purchaseProduct(uint productId, address buyer) external payable {
 Most of the time you don’t need to worry about this. Except when handling structs or arrays within functions, which will cause a compiler error if type is not declared. Storage variables are written to the blockchain permanently and is expensive while memory only exists until the end of the function call so it wil require much less gas.
 ```solidity
 //declaring a memory array inside a function
-uint[] memory values = new uint[](3)
+uint[] memory values = new uint[](3);
 
 //declaring a storage array inside function
-uint[] storage values = new uint[](3)
+uint[] storage values = new uint[];
 ```
 For now, a memory array in Solidity needs to be declared with the length argument and cannot change size.
 
@@ -277,6 +277,7 @@ Allows free API calls to access information in the blockchain, but cannot do wri
 A secure and recommended way to bridge your webapp with the Ethereum blockchain. It can let users manage Ethreum accounts as well as read and write into the Ethereum blockchain through a browser extension. Metamask will inject their web3 provider automaticall (unless  private mode on the extension is on, so make sure it's off during testing)
 
 Set up to detect and load Metamask if present or prompt user to install:
+```solidity
 window.addEventListener(‘load’, function() {
   if (typeof web3 !== ‘undefined’) {
     web3js = new Web3(web3.currentProvider);
@@ -286,7 +287,7 @@ window.addEventListener(‘load’, function() {
   //Now you can start your app & access web3js freely:
   startApp();
 })
-
+```
 ## Talking to Contracts
 ABI stands for Application Binary Interface, which is a JSON file that tells your web3.js how to interact with your contract. When you compile a contract, it will generate an ABI. You can also look up the ABI and address of any deployed contracts on Etherscan: https://etherscan.io/ 
 ### to instantiate a contract
